@@ -20,10 +20,4 @@ public class OutputView {
 
         System.out.print("우승자: " + String.join(", ", winnerNames));
     }
-
-    public static void printCarPositions(CarList carList) {
-        for (Car car : carList.getCarList()) {
-            System.out.println(car.getName() + ": " + car.getPosition());
-        }
-    }
 }
