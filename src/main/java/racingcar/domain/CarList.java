@@ -35,8 +35,4 @@ public class CarList {
 
         return winners;
     }
-
-    public List<Car> getCarList() {
-        return carList;
-    }
 }
