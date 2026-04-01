@@ -1,13 +1,13 @@
 package racingcar.domain;
 
-import racingcar.util.RandomNumberGenerator;
+import racingcar.util.NumberGenerator;
 
 public class Race {
     private static final int MOVE_THRESHOLD = 4;
 
-    private RandomNumberGenerator randomNumberGenerator;
+    private NumberGenerator randomNumberGenerator;
 
-    public Race(RandomNumberGenerator randomNumberGenerator) {
+    public Race(NumberGenerator randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 

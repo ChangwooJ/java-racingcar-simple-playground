@@ -1,0 +1,16 @@
+package racingcar.domain;
+
+import racingcar.util.NumberGenerator;
+
+public class FixedNumberGenerator implements NumberGenerator {
+    private int fixedNumber;
+
+    public FixedNumberGenerator(int fixedNumber) {
+        this.fixedNumber = fixedNumber;
+    }
+
+    @Override
+    public int generateRandomNumber() {
+        return fixedNumber;
+    }
+}
