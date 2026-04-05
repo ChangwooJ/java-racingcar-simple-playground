@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.util.NumberGenerator;
 
 public class CarList {
@@ -9,9 +10,9 @@ public class CarList {
     private final List<Car> carList;
 
     public CarList(List<Car> carList) {
-        this.carList = carList;
+        this.carList = carList.stream().map(car -> new Car(car.getName())).collect(Collectors.toList());
     }
-
+    
     public void playRoundAllCar(NumberGenerator randomNumberGenerator) {
         for (Car car : carList) {
             car.playRound(randomNumberGenerator);
