@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Winners {
 
@@ -11,26 +11,10 @@ public class Winners {
         this.winners = findWinners(winners);
     }
 
-    private int MaxPosition(CarList carList) {
-        int maxPosition = 0;
-        for (Car car : carList.getCarList()) {
-            int curPosition = car.getPosition();
-            if (curPosition > maxPosition) {
-                maxPosition = curPosition;
-            }
-        }
-        return maxPosition;
-    }
-
     private List<Car> findWinners(CarList carList) {
-        int maxPosition = MaxPosition(carList);
-        List<Car> result = new ArrayList<>();
-        for (Car car : carList.getCarList()) {
-            if (car.getPosition() == maxPosition) {
-                result.add(car);
-            }
-        }
-        return result;
+        int maxPosition = carList.getCarList().stream().mapToInt(Car::getPosition).max().orElse(0);
+        return carList.getCarList().stream().filter(car -> car.getPosition() == maxPosition)
+            .collect(Collectors.toList());
     }
 
     public List<Car> getWinners() {
