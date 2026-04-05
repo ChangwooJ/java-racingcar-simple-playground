@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarList;
+import racingcar.domain.Winners;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -20,8 +21,10 @@ public class Controller {
 
         playRace(carList, totalRound);
 
-        List<Car> winners = carList.findWinner();
-        OutputView.printWinners(winners);
+        Winners winners = new Winners(carList);
+
+        List<Car> winnerCars = winners.getWinners();
+        OutputView.printWinners(winnerCars);
     }
 
     private void inputAllCarName(int numberOfCars, List<Car> inputCarList) {

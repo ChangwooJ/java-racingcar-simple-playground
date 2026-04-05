@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.NumberGenerator;
@@ -12,30 +11,14 @@ public class CarList {
     public CarList(List<Car> carList) {
         this.carList = carList.stream().map(car -> new Car(car.getName())).collect(Collectors.toList());
     }
-    
+
     public void playRoundAllCar(NumberGenerator randomNumberGenerator) {
         for (Car car : carList) {
             car.playRound(randomNumberGenerator);
         }
     }
 
-    public List<Car> findWinner() {
-        int maxPosition = 0;
-        for (Car car : carList) {
-            int curPosition = car.getPosition();
-            if (curPosition > maxPosition) {
-                maxPosition = curPosition;
-            }
-        }
-
-        List<Car> winners = new ArrayList<>();
-        for (Car car : carList) {
-            int curPosition = car.getPosition();
-            if (curPosition == maxPosition) {
-                winners.add(car);
-            }
-        }
-
-        return winners;
+    public List<Car> getCarList() {
+        return carList;
     }
 }
