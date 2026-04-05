@@ -5,6 +5,7 @@ import racingcar.util.NumberGenerator;
 public class Car {
 
     private static final int MOVE_THRESHOLD = 4;
+    private static final int MOVE_DISTANCE = 1;
     private final String name;
     private int position;
 
@@ -21,7 +22,7 @@ public class Car {
     }
 
     public void move() {
-        position += 1;
+        position += MOVE_DISTANCE;
     }
 
     public int getPosition() {
