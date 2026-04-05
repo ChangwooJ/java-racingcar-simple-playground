@@ -1,21 +1,19 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarList;
-import racingcar.domain.Race;
-import racingcar.util.NumberGenerator;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Controller {
+
     public void run() {
-        int NumberOfCars = InputView.inputNumberOfCars();
+        int numberOfCars = InputView.inputNumberOfCars();
         List<Car> inputCarList = new ArrayList<>();
-        inputAllCarName(NumberOfCars, inputCarList);
+        inputAllCarName(numberOfCars, inputCarList);
         int totalRound = InputView.inputRoundNumber();
 
         CarList carList = new CarList(inputCarList);
@@ -26,20 +24,19 @@ public class Controller {
         OutputView.printWinners(winners);
     }
 
-    private void inputAllCarName(int NumberOfCars, List<Car> inputCarList) {
+    private void inputAllCarName(int numberOfCars, List<Car> inputCarList) {
         OutputView.printNameInfo();
-        for (int i = 0; i < NumberOfCars; i++) {
+        for (int i = 0; i < numberOfCars; i++) {
             String name = InputView.inputCarName();
             inputCarList.add(new Car(name));
         }
     }
 
     private void playRace(CarList carList, int totalRound) {
-        NumberGenerator numberGenerator = new RandomNumberGenerator();
-        Race race = new Race(numberGenerator);
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
         for (int i = 0; i < totalRound; i++) {
-            carList.playRoundAllCar(race);
+            carList.playRoundAllCar(randomNumberGenerator);
         }
     }
 }

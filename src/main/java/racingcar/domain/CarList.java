@@ -2,17 +2,19 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.util.NumberGenerator;
 
 public class CarList {
+
     private final List<Car> carList;
 
     public CarList(List<Car> carList) {
         this.carList = carList;
     }
 
-    public void playRoundAllCar(Race race) {
+    public void playRoundAllCar(NumberGenerator randomNumberGenerator) {
         for (Car car : carList) {
-            race.playRound(car);
+            car.playRound(randomNumberGenerator);
         }
     }
 

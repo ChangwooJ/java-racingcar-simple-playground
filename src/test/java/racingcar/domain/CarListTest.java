@@ -1,13 +1,13 @@
 package racingcar.domain;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class CarListTest {
+
     @Test
     @DisplayName("우승자가 1명인 경우 해당 자동차를 반환한다.")
     public void findWinner_singleWinner() {
@@ -46,9 +46,8 @@ public class CarListTest {
         Car car2 = new Car("자동차2");
 
         CarList carList = new CarList(List.of(car1, car2));
-        Race race = new Race(new FixedNumberGenerator(4));
 
-        carList.playRoundAllCar(race);
+        carList.playRoundAllCar(new FixedNumberGenerator(4));
 
         assertEquals(1, car1.getPosition());
         assertEquals(1, car2.getPosition());
