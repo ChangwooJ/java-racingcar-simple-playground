@@ -13,8 +13,9 @@ public class Controller {
 
     public void run() {
         int numberOfCars = InputView.inputNumberOfCars();
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         List<Car> inputCarList = new ArrayList<>();
-        inputAllCarName(numberOfCars, inputCarList);
+        inputAllCarName(numberOfCars, inputCarList, randomNumberGenerator);
         int totalRound = InputView.inputRoundNumber();
 
         CarList carList = new CarList(inputCarList);
@@ -27,19 +28,17 @@ public class Controller {
         OutputView.printWinners(winnerCars);
     }
 
-    private void inputAllCarName(int numberOfCars, List<Car> inputCarList) {
+    private void inputAllCarName(int numberOfCars, List<Car> inputCarList, RandomNumberGenerator randomNumberGenerator) {
         OutputView.printNameInfo();
         for (int i = 0; i < numberOfCars; i++) {
             String name = InputView.inputCarName();
-            inputCarList.add(new Car(name));
+            inputCarList.add(new Car(name, randomNumberGenerator));
         }
     }
 
     private void playRace(CarList carList, int totalRound) {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-
         for (int i = 0; i < totalRound; i++) {
-            carList.playRoundAllCar(randomNumberGenerator);
+            carList.playRoundAllCar();
         }
     }
 }

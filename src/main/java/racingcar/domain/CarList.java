@@ -10,12 +10,12 @@ public class CarList {
     private final List<Car> carList;
 
     public CarList(List<Car> carList) {
-        this.carList = carList.stream().map(car -> new Car(car.getName())).collect(Collectors.toList());
+        this.carList = carList.stream().map(car -> new Car(car.getName(), car.getNumberGenerator())).collect(Collectors.toList());
     }
 
-    public void playRoundAllCar(NumberGenerator randomNumberGenerator) {
+    public void playRoundAllCar() {
         for (Car car : carList) {
-            car.playRound(randomNumberGenerator);
+            car.playRound();
         }
     }
 
