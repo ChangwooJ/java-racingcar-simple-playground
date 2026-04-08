@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Winners;
 
 public class CarListTest {
 
@@ -18,7 +19,7 @@ public class CarListTest {
         car2.move();
 
         CarList carList = new CarList(List.of(car1, car2));
-        List<Car> winners = carList.findWinner();
+        List<Car> winners = new Winners(carList).getWinners();
 
         assertEquals(1, winners.size());
         assertEquals("자동차1", winners.get(0).getName());
@@ -34,7 +35,7 @@ public class CarListTest {
         car2.move();
 
         CarList carList = new CarList(List.of(car1, car2, car3));
-        List<Car> winners = carList.findWinner();
+        List<Car> winners = new Winners(carList).getWinners();
 
         assertEquals(2, winners.size());
     }
