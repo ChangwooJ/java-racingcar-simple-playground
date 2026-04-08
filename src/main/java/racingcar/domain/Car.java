@@ -22,10 +22,6 @@ public class Car {
         }
     }
 
-    public NumberGenerator getNumberGenerator() {
-        return numberGenerator;
-    }
-
     public void move() {
         position += MOVE_DISTANCE;
     }
