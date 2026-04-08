@@ -1,8 +1,9 @@
 package racingcar.domain;
 
+import racingcar.util.NumberGenerator;
+
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.util.NumberGenerator;
 
 public class CarList {
 
@@ -19,6 +20,6 @@ public class CarList {
     }
 
     public List<Car> getCarList() {
-        return carList;
+        return List.copyOf(carList);
     }
 }
