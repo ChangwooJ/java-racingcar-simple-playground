@@ -25,6 +25,7 @@ public class Controller {
 
         CarList carList = new CarList(inputCarList);
 
+        OutputView.printRoundResult();
         playRace(carList, totalRound);
 
         Winners winners = new Winners(carList);
@@ -42,6 +43,10 @@ public class Controller {
     private void playRace(CarList carList, int totalRound) {
         for (int i = 0; i < totalRound; i++) {
             carList.playRoundAllCar();
+            for (Car car : carList.getCarList()) {
+                OutputView.printCarPosition(car);
+            }
+            OutputView.printNewLine();
         }
     }
 }
