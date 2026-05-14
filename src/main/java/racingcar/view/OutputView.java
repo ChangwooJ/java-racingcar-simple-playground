@@ -23,6 +23,6 @@ public class OutputView {
         String winnersNames = winners.stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
-        System.out.println("우승자: " + winnersNames);
+        System.out.println(winnersNames + "가 최종 우승했습니다.");
     }
 }
